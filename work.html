@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work — Daniel Worden</title>
+  <meta name="description" content="Code and projects by Daniel Worden.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&text=I&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="site">
+    <header class="site-header">
+      <img class="brush" src="images/brush.svg" alt="" width="1282" height="33">
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Homepage</a>
+        <a href="about.html">About</a>
+        <a href="work.html" aria-current="page">Work</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="sun" viewBox="0 0 46 46" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="5.6" stroke-linecap="round"><line x1="23.00" y1="8.30" x2="23.00" y2="3.30"/><line x1="33.39" y1="12.61" x2="36.93" y2="9.07"/><line x1="37.70" y1="23.00" x2="42.70" y2="23.00"/><line x1="33.39" y1="33.39" x2="36.93" y2="36.93"/><line x1="23.00" y1="37.70" x2="23.00" y2="42.70"/><line x1="12.61" y1="33.39" x2="9.07" y2="36.93"/><line x1="8.30" y1="23.00" x2="3.30" y2="23.00"/><line x1="12.61" y1="12.61" x2="9.07" y2="9.07"/></g><circle cx="23" cy="23" r="9.4" fill="none" stroke="currentColor" stroke-width="5"/></svg><svg class="moon" viewBox="0 0 46 46" aria-hidden="true" focusable="false"><path fill="currentColor" d="M29.5 6.5a17 17 0 1 0 10 27.6A14 14 0 0 1 29.5 6.5z"/></svg></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-title section-title--page" aria-labelledby="work-title">
+        <h1 id="work-title">My Work</h1>
+        <svg class="arrow" viewBox="0 0 49 76" aria-hidden="true"><path fill="currentColor" d="M20 2H28V47L47 42L24.5 75L2 42L20 47Z"/></svg>
+      </section>
+      <div class="content">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="btn" type="button" data-filter="programming" aria-pressed="false">Programming</button>
+          <button class="btn" type="button" data-filter="3d" aria-pressed="false">3D Modelling</button>
+          <button class="btn" type="button" data-filter="music" aria-pressed="false">Music</button>
+        </div>
+        <div class="card-grid">
+          <article class="card" data-category="programming">
+            <span class="tag">Programming</span>
+            <h3>Rhythm Game Engine</h3>
+            <p>A small Python + Pygame engine that reads a beat map and spawns notes in time with the music.</p>
+            <pre><code>def spawn_notes(beat_map, t):
+    return [n for n in beat_map
+            if abs(n.time - t) &lt; WINDOW]</code></pre>
+          </article>
+          <article class="card" data-category="3d">
+            <span class="tag">3D Modelling</span>
+            <h3>Blender Asset Exporter</h3>
+            <p>A Blender add-on that batch-exports my 3D models with consistent scale, names and materials.</p>
+            <pre><code>for obj in bpy.context.selected_objects:
+    obj.scale = (1, 1, 1)
+    export_fbx(obj, folder)</code></pre>
+          </article>
+          <article class="card" data-category="programming">
+            <span class="tag">Programming</span>
+            <h3>College Timetable Bot</h3>
+            <p>A Discord bot that tells my class which room the next lesson is in.</p>
+            <pre><code>client.on("message", msg =&gt; {
+  if (msg.content === "!next")
+    msg.reply(nextLesson());
+});</code></pre>
+          </article>
+          <article class="card" data-category="music">
+            <span class="tag">Music</span>
+            <h3>Step Sequencer</h3>
+            <p>A browser drum machine built with the Web Audio API and plain JavaScript.</p>
+            <pre><code>const osc = ctx.createOscillator();
+osc.frequency.value = 220;
+osc.start(time);</code></pre>
+          </article>
+          <article class="card" data-category="3d">
+            <span class="tag">3D Modelling</span>
+            <h3>Procedural Terrain</h3>
+            <p>Noise-based landscape generation in Unity, used as a level for a college project.</p>
+            <pre><code>float h = Mathf.PerlinNoise(x * scale,
+                            z * scale);
+vertices[i].y = h * height;</code></pre>
+          </article>
+          <article class="card" data-category="music">
+            <span class="tag">Music</span>
+            <h3>MIDI Chord Helper</h3>
+            <p>A Python script that suggests chords that fit a melody from a MIDI file.</p>
+            <pre><code>chords = [c for c in KEY_CHORDS
+          if set(c.notes) &amp; melody]</code></pre>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year>2026</span> Daniel Worden &middot; Student at Fcot &middot; <a href="contact.html">Get in touch</a></p>
+    </footer>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
